@@ -141,6 +141,23 @@ define U-Boot/nanopi-r5s-rk3568
     friendlyarm_nanopi-r5s
 endef
 
+
+# RK3566 boards
+
+define U-Boot/rk3566/Default
+  BUILD_SUBTARGET:=armv8
+  DEPENDS:=+PACKAGE_u-boot-$(1):trusted-firmware-a-rk3566
+  ATF:=rk3568_bl31_v1.43.elf
+  TPL:=rk3566_ddr_1056MHz_v1.18.bin
+endef
+
+define U-Boot/orangepi-3b-rk3566
+  $(U-Boot/rk3566/Default)
+  NAME:=Orange Pi 3B
+  BUILD_DEVICES:= \
+    xunlong_orangepi-3b
+endef
+
 UBOOT_TARGETS := \
   nanopc-t4-rk3399 \
   nanopi-r4s-rk3399 \
@@ -154,7 +171,8 @@ UBOOT_TARGETS := \
   rock64-rk3328 \
   rock-pi-e-rk3328 \
   nanopi-r5c-rk3568 \
-  nanopi-r5s-rk3568
+  nanopi-r5s-rk3568 \
+  orangepi-3b-rk3566
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

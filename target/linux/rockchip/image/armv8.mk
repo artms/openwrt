@@ -108,3 +108,10 @@ define Device/xunlong_orangepi-r1-plus-lts
   DEVICE_PACKAGES := kmod-usb-net-rtl8152
 endef
 TARGET_DEVICES += xunlong_orangepi-r1-plus-lts
+
+define Device/xunlong_orangepi-3b
+  DEVICE_VENDOR := Xunlong
+  DEVICE_MODEL := Orange Pi 3B
+  SOC := rk3566
+endef
+TARGET_DEVICES += xunlong_orangepi-3b
